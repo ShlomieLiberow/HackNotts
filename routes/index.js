@@ -1,19 +1,13 @@
+/*npm install -g express-generator
+express -e hbs*/
 var awesomefunction = require('../libs/myfuncs').awesomefunc;
 var balanceG = require('../libs/myfuncs').balanceRestCall;
 var imageCheck = require('../libs/myfuncs').imageCheck;
+var curlTest = require('../libs/myfuncs').curlTest;
 var express = require('express');
 var router = express.Router();
-/*function setBalance(balance)
- {
- balanceG = balance;
- console.log("triggered");
- }*/
-/* GET home page. */
-router.get('/passmessage', function (req, res, next) {
-    req.message = "hello";
-    next();
-});
 
+/* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('index', {title: 'Express', firstname: "", balance: ""});
 });
@@ -23,21 +17,35 @@ router.get('/signin', function (req, res, next) {
 });
 
 router.get('/dashboard', function (req, res, next) {
-    res.render('dashboard', {title: 'Express'});
+    balanceG().then(function (bal) {
+        res.render('dashboard', {title: 'Express', balance: bal});
+    })
 });
 
 router.post('/', function (req, res, next) {
-    var name = req.body.fname;
-    name = awesomefunction(name);
-    balanceG().then(function (bal) {
-        res.render('index', {title: 'Express', firstname: name, balance: 'Balance is ' + bal});
-    });
+    res.render('index', {title: 'Express', balance: 'Balance is £' + bal});
 }),
 
-    router.post('/drunkCheck', function (req, res, next) {
-        imageCheck().then(function (status) {
-            res.render('fail', {title: 'Express', classList: 'Tags:' + status});
-        });
+    router.get('/drunkFail', function (req, res, next) {
+        imageCheck().then(function(data) {
+            res.render('fail', {title: 'Express', classes: data.results[0].result.tag.classes});
+            console.log(data.results[0].result.tag.classes)
+        })
     });
+
+router.get('/marauders', function (req, res, next) {
+        res.render('marauders');
+});
+
+router.get('/photo', function (req, res, next) {
+    res.render('photo');
+});
+
+router.get('/drunkPass', function (req, res, next) {
+    imageCheck().then(function(data) {
+        res.render('pass', {title: 'Express', classes: data.results[0].result.tag.classes});
+        console.log(data.results[0].result.tag.classes)
+    })
+});
 
 module.exports = router;

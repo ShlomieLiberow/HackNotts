@@ -1,0 +1,83 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HackNotts Fund">
+    <meta name="keywords" content="">
+    <meta name="author" content="Alikhan Uzakov">
+
+    <title> HackNotts Fund </title>
+      <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
+      <link href="/stylesheets/toolkit-startup.css" rel="stylesheet">
+      <link href="stylesheets/application-startup.css" rel="stylesheet">
+      <link href="stylesheets/style.css" rel="stylesheet">
+  </head>
+
+
+<body style="background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/6d/Large-scale_structure_of_light_distribution_in_the_universe.jpg)">
+  <div class="stage-shelf stage-shelf-right hidden" id="sidebar">
+    <ul class="nav nav-bordered nav-stacked">
+      <li class="nav-header">Account</li>
+      <li >
+        <a href="signin.html">Sign out</a>
+      </li>
+
+      <li class="nav-divider"></li>
+      <li class="nav-header">About</li>
+      <li>
+        <a href="docs/index.html">Our values</a>
+      </li>
+      <li>
+        <a href="http://getbootstrap.com">Companies we invest in</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="stage" id="stage">
+
+  <nav class="navbar navbar-transparent navbar-fixed-top navbar-padded app-navbar p-t-md">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed p-x-0"
+                data-target="#stage" data-toggle="stage" data-distance="-250">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          <strong style="background: #fff; padding: 12px; border-radius: 4px; color: #28669F;">
+            HNF
+          </strong>
+        </a>
+      </div>
+      <div class="navbar-collapse collapse text-uppercase">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="signout.html">Sign out</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="col-md-6 centered">
+    <div class="panel panel-bold panel-info">
+      <div class="panel-body p-b-lg">
+        <h3 class="m-y-0">Please upload your image for verification purpose</h3>
+        <form action="" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" capture>
+        <a class="btn btn-lg btn-primary btn-block" href="fail.html">Invest</a>
+         </form>
+      </div>
+    </div>
+  </div>
+<script src="javascripts/jquery.min.js"></script>
+<script src="javascripts/toolkit.js"></script>
+<script src="javascripts/application.js"></script>
+</body>
+</html>
