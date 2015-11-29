@@ -18,8 +18,28 @@ function balanceRestCall() {
             deferred.resolve(bal);
             //  setBalance(bal);
         }
-    })
+    });
     return deferred.promise;
 }
 
-module.exports = {awesomefunc: awesomefunction, balanceRestCall: balanceRestCall};
+function imageCheck() {
+    var deferredImage = q.defer();
+    request.post('https://api.clarifai.com/v1/tag/')
+        .auth(null,null, true, '6zfUB2vQsHBLYKIUEHoW99sVyJzYf6')
+        .form({
+
+        })
+    request(path, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var balResponse = JSON.parse(body);
+            var category = balResponse.classes;
+            console.log(body);
+            console.log(category);
+            deferredImage.resolve(category);
+            //  setBalance(bal);
+        }
+    })
+    return deferredImage.promise;
+}
+
+module.exports = {awesomefunc: awesomefunction, balanceRestCall: balanceRestCall, imageCheck: imageCheck};

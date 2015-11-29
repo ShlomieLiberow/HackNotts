@@ -1,8 +1,27 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.biggerh{
+  font-size: 400%;
+  padding-top: -10px;
 }
-
-a {
-  color: #00B7FF;
+.app-price-plans{
+  padding-top:10%;
+}
+.dashboard{
+  padding-top: 10%;
+  padding-bottom: 4%;
+}
+.featured{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 500px) {
+  .app-price-plans {
+    padding-top:24%  ;
+    }
+    .app-navbar{
+    padding-bottom: 1.5%;
+    }
+    .dashboard{
+      padding-top: 24%;
+      padding-bottom: 4%;
+    }
 }
