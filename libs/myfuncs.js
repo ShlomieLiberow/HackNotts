@@ -7,6 +7,7 @@ function awesomefunction(name) {
 }
 
 function balanceRestCall() {
+    var deferred = q.defer();
     var path = 'http://api.reimaginebanking.com/customers/5659ca8d3921211200ef1cf1/accounts?key=bcde991cf2442c24f6f4f24d0cd65949';
     request(path, function (error, response, body) {
         if (!error && response.statusCode == 200) {
@@ -14,9 +15,11 @@ function balanceRestCall() {
             var bal = balResponse[0].balance;
             console.log(body);
             console.log(bal);
-          //  setBalance(bal);
+            deferred.resolve(bal);
+            //  setBalance(bal);
         }
     })
+    return deferred.promise;
 }
 
 module.exports = {awesomefunc: awesomefunction, balanceRestCall: balanceRestCall};
